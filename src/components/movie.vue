@@ -1,0 +1,49 @@
+<template>
+  <div class="hello">
+    <a class="per-video" :href="video.url">
+      <div>
+        <img width="180" height="236" rseat="dsjp7" :title="video.title" :alt="video.title" :src="video.imageUrl">
+      </div>
+      <div class="detail">
+		    <p class="title g-clear">
+           <span class="s1">{{video.title}}</span>
+           <span class="s2">{{video.score}}</span>
+        </p>
+        <p class="star">{{video.role}}</p>
+      </div>
+    </a>
+  </div>
+
+   
+</template>
+
+<script>
+export default {
+  name: 'movie',
+  props:['video']
+  
+}
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+a {
+  color: #333;
+}
+span:hover, span:active,p:hover,p:active {
+    color: #699f00;
+}
+p.title,p.star{
+  height:25px;
+  line-height:25px;
+  overflow:hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+span.s1{
+  float:left;
+}
+span.s2{
+  float:right;
+}
+</style>
