@@ -1,6 +1,6 @@
 # movies.llili.cn
 
-> A Vue.js project 根据[爱奇艺爬虫](https://github.com/Future1995/IQiYiCrawler)得到的数据写的vue 项目
+> A Vue.js project 根据[爱奇艺爬虫](https://github.com/Future1995/IQiYiCrawler)得到的数据写的vue 项目 <br>
 > 项目地址[http://movies.llili.cn](http://movies.llili.cn)
 
 ## Build Setup
