@@ -40,7 +40,7 @@ export default {
       this.getData();
     },
     getData:function(){
-    axios.get("http://118.24.11.218:8888/api/movies?page="+this.page)
+    axios.get("http://movies.llili.cn/api/movies?page="+this.page)
     .then(response=>{
      //console.log(this.page);
       this.videos=response.data;
