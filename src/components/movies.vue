@@ -1,11 +1,8 @@
 <template>
 <div class="movies">
-    <!--列表内容-->
-   <ul class="movies_list">
-      <li v-for="item in videos">
-        <Movie :video="item"></Movie>
-      </li>
-    </ul>
+    <el-row :gutter="20" class="movies_list">
+      <el-col :span="4" v-for="item in videos"><Movie :video="item"></Movie></el-col>
+    </el-row>
     <!--分页-->
     <Page @myEvent="getMyEvent"></Page>
 </div>
@@ -33,10 +30,10 @@ export default {
      this.getData();
   },
   methods:{
-    getMyEvent (page) {
+    getMyEvent (currentPage) {
       //var that=this;
       //console.log("子组件的值"+page);
-      this.page=page;
+      this.page=currentPage;
       this.getData();
     },
     getData:function(){
