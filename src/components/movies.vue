@@ -1,7 +1,10 @@
 <template>
 <div class="movies">
+    <!--条件筛选-->
+    <Condition @classifyClick="classifyHandle"></Condition>
+    <!--视频列表-->
     <el-row :gutter="20" class="movies_list">
-      <el-col :span="4" v-for="item in videos"><Movie :video="item"></Movie></el-col>
+      <el-col :span="4"  v-for="item in videos" :key="item"><Movie :video="item"></Movie></el-col>
     </el-row>
     <!--分页-->
     <Page @myEvent="getMyEvent"></Page>
@@ -11,19 +14,22 @@
 </template>
 
 <script>
+import Condition from '@/components/condition';
 import Movie from '@/components/movie';
 import Page from '@/components/Page';
 import axios from 'axios';
 export default {
   name: 'movies',
   components:{
+    Condition,
     Movie,
     Page
   },
   data () {
     return {
      videos:[],
-     page:1
+     page:1,
+     value:""
     }
   },
   created:function(){
@@ -37,7 +43,7 @@ export default {
       this.getData();
     },
     getData:function(){
-    axios.get("http://movies.llili.cn/api/movies?page="+this.page)
+    axios.get("http://movies.llili.cn/api/movies?page="+this.page+"&classify="+this.value)
     .then(response=>{
      //console.log(this.page);
       this.videos=response.data;
@@ -47,6 +53,11 @@ export default {
       console.log(error);
       alert("网络错误，不能访问");
     })
+  },
+  classifyHandle(value){
+    this.value=value;
+    console.log(this.value);
+    this.getData();
   }
 }
 }
@@ -56,15 +67,8 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .movies_list{
-  width:100%;
-  overflow:hidden;
   margin:20px 0;
  
-}
-.movies_list li{
-  float:left;
-  width:180px;
-  margin:0 10px 30px;
 }
 
 
