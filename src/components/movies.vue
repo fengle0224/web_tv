@@ -30,16 +30,7 @@ export default {
     }
   },
   created:function(){
-    axios.get("http://118.24.11.218:8888/api/movies?page="+this.page)
-    .then(response=>{
-      // console.log(response.data);
-      this.videos=response.data;
-      
-    })
-    .catch(error=>{
-      console.log(error);
-      alert("网络错误，不能访问");
-    })
+     this.getData();
   },
   methods:{
     getMyEvent (page) {
