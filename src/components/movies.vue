@@ -56,7 +56,7 @@ export default {
   },
   classifyHandle(value){
     this.value=value;
-    alert(this.value);
+    //alert(this.value);
     this.getData();
   }
 }

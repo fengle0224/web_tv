@@ -32,7 +32,7 @@ export default {
         axios.get("http://movies.llili.cn/api/classify?classify="+value)
             .then(response=>{
             this.classifys=response.data;
-            console.log(this.classifys);
+            //console.log(this.classifys);
         
             })
             .catch(error=>{
