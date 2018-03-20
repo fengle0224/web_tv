@@ -29,7 +29,7 @@ export default {
     return {
      videos:[],
      page:1,
-     value:""
+     value:"/www/1/----------------iqiyi--.html"
     }
   },
   created:function(){
@@ -56,7 +56,7 @@ export default {
   },
   classifyHandle(value){
     this.value=value;
-    console.log(this.value);
+    alert(this.value);
     this.getData();
   }
 }
