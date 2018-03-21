@@ -2,7 +2,7 @@
   <div class="hello">
     <a class="per-video" :href="video.url">
       <div>
-        <img width="180" height="236" rseat="dsjp7" :title="video.title" :alt="video.title" :src="video.imageUrl">
+        <img width="180" height="236" rseat="dsjp7" :title="video.title" :alt="video.title" :src="getImage(video.imageUrl)">
       </div>
       <div class="detail">
 		    <p class="title g-clear">
@@ -20,7 +20,17 @@
 <script>
 export default {
   name: 'movie',
-  props:['video']
+  props:['video'],
+  methods:{
+    getImage(url){
+        //console.log(url);
+        // 把现在的图片连接传进来，返回一个不受限制的路径
+        if(url != undefined){
+           return url='https://images.weserv.nl/?url='+url;
+        }
+
+     }
+  }
   
 }
 </script>
