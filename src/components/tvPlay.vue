@@ -46,7 +46,7 @@ export default {
       }else{
         this.teleplay=true;
         //如果是电视剧获取分集的数据
-        axios.get("http://movies.llili.cn/api/playList?url="+this.tvUrl)
+        axios.get("http://movies.llili.cn/api/playList?url="+this.tvUrl+"&checkedIndex="+this.index)
         .then(response=>{
           this.allTv=response.data;
         })
