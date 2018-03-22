@@ -3,7 +3,6 @@
   <el-row :gutter="20">
   <el-col :span="12">
      <iframe :src="tvUrl" frameborder="0" width="100%" height="500px"></iframe>
-     {{$route.params.index}}
   </el-col>
   <!--如果是电视剧显示，否则不显示-->
   <el-col :span="6">
@@ -61,6 +60,7 @@ export default {
       this.playIndex=pIndex;
       this.number=number;
       this.tvUrl=url;
+      console.log(this.tvUrl);
     }
   }
 
@@ -77,6 +77,7 @@ export default {
   }
   div.playList{
     overflow:hidden;
+    cursor:pointer;
   }
   div.playList li{
     float: left;
