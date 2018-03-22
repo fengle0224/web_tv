@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <a class="per-video" :href="video.url">
+       <a class="per-video" :href="video.url" >
       <div>
         <img width="180" height="236" rseat="dsjp7" :title="video.title" :alt="video.title" :src="getImage(video.imageUrl)">
       </div>
@@ -11,10 +11,8 @@
         </p>
         <p class="star">{{video.role}}</p>
       </div>
-    </a>
+    </a>    
   </div>
-
-   
 </template>
 
 <script>

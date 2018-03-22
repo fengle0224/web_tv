@@ -1,11 +1,11 @@
 <template>
   <div id="app">
-   
   <!--主体部分-->
     <div class="main">
-    <router-view>
+    <transition name="fade" mode="in-out">
+      <router-view></router-view>
+    </transition>
     
-    </router-view>
     </div>
     <!--底部信息-->
      <footer class="footer">
@@ -67,5 +67,18 @@ div.main{
 }
 *{
   box-sizing:border-box;
+}
+.fade-enter {
+  opacity:0;
+}
+.fade-leave{
+  opacity:1;
+}
+.fade-enter-active{
+  transition:opacity .5s;
+}
+.fade-leave-active{
+  opacity:0;
+  transition:opacity .5s;
 }
 </style>

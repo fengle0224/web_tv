@@ -1,7 +1,7 @@
 <template>
   <div class="condition">
    <div class="pindao" v-for="(classify,cIndex) in classifys">
-        <H3>{{classify.classifyName}}</H3>
+        <h3>{{classify.classifyName}}</h3>
         <ul>
             <li v-for="(item,index) in classify.detailClassify" :class="{checked: (cIndex+'.'+index)==classifyIndex[cIndex]}" @click="classifyClick(item.value,index,cIndex)">{{item.name}}</li>
         </ul>
@@ -15,7 +15,7 @@ export default {
   name: 'condition',
   data () {
     return{
-        classifys:[],
+       classifys:[],
        classifyIndex:[0.1,1.0,2.0,3.0,4.0,5.0]
     }
   },
@@ -26,7 +26,7 @@ export default {
       classifyClick (value,index,cIndex) {
         this.classifyIndex[cIndex]=(cIndex+'.'+index);
         this.loadClassify(value);
-        this.$emit('classifyClick',value);
+        this.$emit('classifyClick',value,index,cIndex);
       },
      loadClassify(value){
         axios.get("http://movies.llili.cn/api/classify?classify="+value)
@@ -56,7 +56,7 @@ export default {
     .pindao{
         border-bottom: 1px dotted #d5d5d5;
         padding: 5px 15px 5px 0;
-         line-height:25px;
+        line-height:25px;
         overflow: hidden;
        
     }
@@ -65,6 +65,11 @@ export default {
     }
     .pindao h3,.pindao ul{
         float:left;
+    }
+    .pindao h3{
+        font-size:12px;
+        color:#999;
+        font-weight:normal;
     }
     
     .pindao ul li{

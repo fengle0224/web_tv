@@ -4,7 +4,11 @@
     <Condition @classifyClick="classifyHandle"></Condition>
     <!--视频列表-->
     <el-row :gutter="20" class="movies_list">
-      <el-col :span="4"  v-for="item in videos" :key="item"><Movie :video="item"></Movie></el-col>
+      <el-col :span="4"  v-for="item in videos" :key="item">
+      <router-link :to="{name:'tvPlay',params:{url:item.url,title:item.title,index:checkedIndex}}" >
+        <Movie :video="item"></Movie>
+      </router-link>
+      </el-col>
     </el-row>
     <!--分页-->
     <Page @myEvent="getMyEvent"></Page>
@@ -29,10 +33,11 @@ export default {
     return {
      videos:[],
      page:1,
-     value:"/www/1/----------------iqiyi--.html"
+     value:"/www/1/----------------iqiyi--.html",
+     checkedIndex:1
     }
   },
-  created:function(){
+  created(){
      this.getData();
   },
   methods:{
@@ -42,10 +47,10 @@ export default {
       this.page=currentPage;
       this.getData();
     },
-    getData:function(){
+    getData(){
     axios.get("http://movies.llili.cn/api/movies?page="+this.page+"&classify="+this.value)
     .then(response=>{
-     //console.log(this.page);
+     //console.log(response.data);
       this.videos=response.data;
       
     })
@@ -54,9 +59,11 @@ export default {
       alert("网络错误，不能访问");
     })
   },
-  classifyHandle(value){
+  classifyHandle(value,index,cIndex){
     this.value=value;
-    //alert(this.value);
+    if(cIndex==0){
+      this.checkedIndex=index;
+    }
     this.getData();
   }
 }
