@@ -60,7 +60,7 @@ export default {
       this.playIndex=pIndex;
       this.number=number;
       this.tvUrl=url;
-      console.log(this.tvUrl);
+       console.log(this.tvUrl);
     }
   }
 
