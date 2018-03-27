@@ -1,22 +1,24 @@
 <template>
-  <div id="app">
-  <!--主体部分-->
-    <div class="main">
-    <transition name="fade" mode="in-out">
-      <router-view></router-view>
-    </transition>
-    
-    </div>
-    <!--底部信息-->
-     <footer class="footer">
-      免责声明:本站所有视频均来自互联网收集而来，版权归原创者所有，如果侵犯了你的权益，请通知我们，我们会及时删除侵权内容，谢谢合作！
-     </footer>
-  </div>
+  <el-container id="app">
+    <el-header class="header">
+      <TopNav></TopNav>
+    </el-header>
+    <el-main class="main">
+      <transition name="fade" mode="in-out">
+        <router-view></router-view>
+      </transition>
+    </el-main>
+    <el-footer class="footer">免责声明:本站所有视频均来自互联网收集而来，版权归原创者所有，如果侵犯了你的权益，请通知我们，我们会及时删除侵权内容，谢谢合作！</el-footer>
+  </el-container>
 </template>
 
 <script>
+import TopNav from '@/components/TopNav';
 export default {
-  name: 'App'
+  name: 'App',
+  components:{
+    TopNav
+  }
 }
 </script>
 
@@ -55,12 +57,15 @@ a:hover {
   background-color: #fff;
   color: #333;
   min-width: 1000px;
+ 
+}
+.header{
+  padding:0;
+}
+
+.main{
   width:1200px;
   margin:0 auto;
-  
-}
-div.main{
-  width:100%;
 }
 .footer{
   text-align:center;
@@ -81,4 +86,5 @@ div.main{
   opacity:0;
   transition:opacity .5s;
 }
+
 </style>

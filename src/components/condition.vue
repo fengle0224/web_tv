@@ -63,26 +63,29 @@ export default {
     .pindao:last-child{
         border-bottom: 0;
     }
-    .pindao h3,.pindao ul{
-        float:left;
-    }
+    
     .pindao h3{
+        float:left;
         font-size:12px;
         color:#999;
         font-weight:normal;
+        width:6%;
     }
-    
+    .pindao ul{
+        width:90%;
+        float:left;
+    }
     .pindao ul li{
         white-space: nowrap;
         float: left;
         display: inline;
         margin: 0 20px 2px 0;
-        line-height: 22px;
+        line-height: 25px;
         cursor:pointer;
+        padding: 0px 5px;
     }
     .pindao ul li.checked{
         background: #699f00;
-        padding: 1px 7px 2px;
         color: #fff;
         border-radius: 1px;
     }
