@@ -2,12 +2,13 @@
 <div class="movies">
     <!--视频列表-->
     <el-row :gutter="20" class="movies_list">
-      <el-col :span="4"  v-for="item in videos" :key="item">
-      <router-link :to="{name:'tvPlay',params:{url:item.url,title:item.title,index:searchType}}" >
+      <el-col :span="4"  v-for="(item,index) in videos" :key="index">
+      <router-link :to="{name:'tvPlay',params:{url:item.url,title:item.title,index:item.searchType}}" >
         <Movie :video="item"></Movie>
       </router-link>
       </el-col>
     </el-row>
+    {{videos}}
 </div>
  
 </template>

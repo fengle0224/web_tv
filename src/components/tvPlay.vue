@@ -48,8 +48,11 @@ export default {
         axios.get("http://movies.llili.cn/api/playList?url="+this.tvUrl+"&checkedIndex="+this.index)
         .then(response=>{
           this.allTv=response.data;
+          this.tvUrl=this.allTv[0].url;
+
         })
        .catch(error=>{
+          
           console.log(error);
           alert("网络错误，不能访问");
         })
@@ -60,7 +63,6 @@ export default {
       this.playIndex=pIndex;
       this.number=number;
       this.tvUrl=url;
-       console.log(this.tvUrl);
     }
   }
 

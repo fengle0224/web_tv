@@ -20,11 +20,6 @@ export default {
       sMovies:[]
     }
   },
-  watch:{
-    '$route' () {
-        this.onSubmit();
-    }
-  },
   methods:{
     onSubmit(){
        if(this.input!=""){

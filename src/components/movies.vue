@@ -4,7 +4,7 @@
     <Condition @classifyClick="classifyHandle"></Condition>
     <!--视频列表-->
     <el-row :gutter="20" class="movies_list">
-      <el-col :span="4"  v-for="item in videos" :key="item">
+      <el-col :span="4"  v-for="(item,index) in videos" :key="index">
       <router-link :to="{name:'tvPlay',params:{url:item.url,title:item.title,index:checkedIndex}}" >
         <Movie :video="item"></Movie>
       </router-link>
