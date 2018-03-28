@@ -20,19 +20,26 @@ export default {
       sMovies:[]
     }
   },
+  watch:{
+    '$route' () {
+        this.onSubmit();
+    }
+  },
   methods:{
     onSubmit(){
-      axios.get("http://movies.llili.cn/api/search?query="+this.input)
-    .then(response=>{
-      this.sMovies=response.data;
-      console.log(this.sMovies);
-      this.$router.push({ path: '/search',query:{sMovies:this.sMovies}});
-    })
-    .catch(error=>{
-      console.log(error);
-      alert("网络错误，不能访问");
-    })
+       if(this.input!=""){
+        axios.get("http://movies.llili.cn/api/search?query="+this.input)
+        .then(response=>{
+        this.sMovies=response.data;
+        this.$router.replace({ path: '/search',query:{sMovies:this.sMovies}});
+        })
+        .catch(error=>{
+          console.log(error);
+          alert("网络错误，不能访问");
+        })
+      }
     }
+      
   }
 }
 </script>

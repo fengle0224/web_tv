@@ -9,7 +9,6 @@
       </el-col>
     </el-row>
 </div>
-
  
 </template>
 
@@ -26,6 +25,17 @@ export default {
      videos:this.$route.query.sMovies
     }
   },
+  watch:{
+    newValue(){
+         this.videos=this.$route.query.sMovies
+    }
+  },
+  computed: {
+    newValue() {
+    　　return this.videos=this.$route.query.sMovies
+    　}
+  
+  }
 }
 
 </script>
