@@ -8,7 +8,6 @@
       </router-link>
       </el-col>
     </el-row>
-    {{videos}}
 </div>
  
 </template>
