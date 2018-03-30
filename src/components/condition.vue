@@ -16,7 +16,7 @@ export default {
   data () {
     return{
        classifys:[],
-       classifyIndex:[0.1,1.0,2.0,3.0,4.0,5.0]
+       classifyIndex:["0.1","1.0","2.0","3.0","4.0","5.0"]
     }
   },
   created () {
@@ -24,6 +24,9 @@ export default {
   },
   methods:{
       classifyClick (value,index,cIndex) {
+          if(cIndex==0){
+            this.classifyIndex=[0+'.'+index,"1.0","2.0","3.0","4.0","5.0"];
+          }
         this.classifyIndex[cIndex]=(cIndex+'.'+index);
         this.loadClassify(value);
         this.$emit('classifyClick',value,index,cIndex);
