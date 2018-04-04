@@ -32,7 +32,7 @@ export default {
         this.$emit('classifyClick',value,index,cIndex);
       },
      loadClassify(value){
-        axios.get("http://movies.llili.cn/api/classify?classify="+value)
+        axios.get("/api/api/classify?classify="+value)
             .then(response=>{
             this.classifys=response.data;
             //console.log(this.classifys);
