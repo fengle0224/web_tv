@@ -1,9 +1,9 @@
 <template>
   <div class="condition">
-   <div class="pindao" v-for="(classify,cIndex) in classifys">
+   <div class="pindao" v-for="(classify,cIndex) in classifys" :key="cIndex">
         <h3>{{classify.classifyName}}</h3>
         <ul>
-            <li v-for="(item,index) in classify.detailClassify" :class="{checked: (cIndex+'.'+index)==classifyIndex[cIndex]}" @click="classifyClick(item.value,index,cIndex)">{{item.name}}</li>
+            <li v-for="(item,index) in classify.detailClassify" :key="index" :class="{checked: (cIndex+'.'+index)==classifyIndex[cIndex]}" @click="classifyClick(item.value,index,cIndex)">{{item.name}}</li>
         </ul>
    </div>
   </div>
@@ -32,7 +32,7 @@ export default {
         this.$emit('classifyClick',value,index,cIndex);
       },
      loadClassify(value){
-        axios.get("/api/api/classify?classify="+value)
+        axios.get("http://movies.llili.cn/api/classify?classify="+value)
             .then(response=>{
             this.classifys=response.data;
             //console.log(this.classifys);

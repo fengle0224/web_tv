@@ -10,7 +10,7 @@
       <h2>{{$route.params.title}}</h2> 
       <div class="playList"  v-show="teleplay">
         <ul>
-          <li :class="{selected:playIndex==pIndex}" v-for="(item,pIndex) in allTv" @click="perPlay(item.url,pIndex,item.number)"><a>{{item.number}}</a></li>
+          <li :class="{selected:playIndex==pIndex}" v-for="(item,pIndex) in allTv" :key="pIndex" @click="perPlay(item.url,pIndex,item.number)"><a>{{item.number}}</a></li>
         </ul>
       </div>
     </div>

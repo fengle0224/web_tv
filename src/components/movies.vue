@@ -48,7 +48,7 @@ export default {
       this.getData();
     },
     getData(){
-    axios.get("/api/api/movies?page="+this.page+"&classify="+this.value)
+    axios.get("http://movies.llili.cn/api/movies?page="+this.page+"&classify="+this.value)
     .then(response=>{
      //console.log(response.data);
       this.videos=response.data;
